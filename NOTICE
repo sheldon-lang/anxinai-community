@@ -1,0 +1,11 @@
+AnxinAI Community
+Copyright (c) 2026 AnxinAI Contributors
+
+The AnxinAI name and logo are product identifiers and are not granted for use
+as the name or branding of modified or redistributed products by the MIT
+License.
+
+Optional semantic detection uses Wismut/nym-pii-multilingual-small, licensed
+under the MIT License. Model files are downloaded from the upstream repository
+at a pinned revision and verified with SHA-256; they are not included here.
+

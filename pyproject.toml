@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anxinai-community"
+version = "0.1.0"
+description = "Local-first Chinese PII redaction for AI agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "AnxinAI Contributors" }]
+keywords = ["privacy", "pii", "chinese", "agent", "redaction", "local-first"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+agent = [
+  "numpy>=1.26",
+  "onnxruntime>=1.18",
+  "pypdf>=5.0",
+  "tokenizers>=0.20",
+]
+dev = ["pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://anxinai.cn"
+Repository = "https://github.com/sheldon-lang/anxinai-community"
+Issues = "https://github.com/sheldon-lang/anxinai-community/issues"
+
+[project.scripts]
+anxinai = "veilgate_agent.__main__:main"
+opf = "veilgate_agent.__main__:main"
+anxin-gate = "veilgate_agent.workbuddy_cli:main"
+anxin-install-model = "veilgate_agent._nym_install:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
