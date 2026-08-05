@@ -113,8 +113,8 @@ def _review_html(payload: dict[str, Any], token: str) -> str:
 <body>
   <main>
     <div class="badge">AnxinAI · 仅在本机处理</div>
-    <h1>发送给 Agent 之前，先检查安全版本</h1>
-    <p class="lead">原文件尚未交给 Agent。下面的原始值只显示在这个本地页面。</p>
+    <h1>隐私马赛克已完成</h1>
+    <p class="lead">原文件仍留在你的电脑。请检查马赛克后的安全版本；确认后 Agent 只会看到这个版本。</p>
     <section class="card">
       <div class="file">{escape(str(payload.get("source_name", "")))}</div>
       <p>共检测到 <strong>{int(payload.get("finding_count", 0))}</strong> 项敏感信息</p>
@@ -125,7 +125,7 @@ def _review_html(payload: dict[str, Any], token: str) -> str:
     </section>
     <section class="card">
       <h2>本地替换明细</h2>
-      <div class="notice">请确认替换范围是否合理。确认后 Agent 只会获得安全版路径。</div>
+      <div class="notice">请确认隐私马赛克范围是否合理。确认后 Agent 只会获得安全版路径。</div>
       <table>
         <thead><tr><th>类型</th><th>本地原值</th><th>安全占位符</th></tr></thead>
         <tbody>{mapping_rows}</tbody>
