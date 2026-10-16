@@ -152,7 +152,7 @@ Agent：只读取审核通过的安全版，并继续完成任务。
 
 需要签名安装包、自动更新、Agent 强制安全目录、OpenAI-compatible 隐私网关、企业策略、审计或定制中文规则，可访问 [anxinai.cn](https://anxinai.cn)。
 
-也欢迎通过 GitHub Issues 交流平台适配、企业部署和规则需求。
+也欢迎通过 [GitHub Issues](https://github.com/sheldon-lang/anxinai-community/issues) 交流平台适配、企业部署和规则需求。
 
 ## 隐私与安全
 
