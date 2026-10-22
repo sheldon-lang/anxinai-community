@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 from typing import Sequence
 
+from . import __version__
 from ._api import OPF
 from ._types import RedactionResult
 
@@ -30,6 +31,11 @@ def _parser(prog: str = "opf") -> argparse.ArgumentParser:
     parser.add_argument("--device", choices=("cpu", "cuda"), default="cuda")
     parser.add_argument("--decode-mode", choices=("viterbi", "argmax"), default="viterbi")
     parser.add_argument("--model", "--checkpoint", dest="model")
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
+    )
     return parser
 
 

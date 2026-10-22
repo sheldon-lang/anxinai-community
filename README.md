@@ -45,6 +45,8 @@ python -m pip install -e .
 opf "联系人张伟，手机号13800138000，邮箱zhangwei@example.com"
 ```
 
+安装后可分别运行 `opf --version` 和 `anxin-gate --version` 确认当前使用的社区版版本。
+
 输出：
 
 ```text
