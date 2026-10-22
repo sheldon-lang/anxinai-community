@@ -5,6 +5,7 @@ import subprocess
 import sys
 import unittest
 
+from veilgate_agent import __version__
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src"
@@ -24,6 +25,11 @@ def run_cli(*args: str, stdin: str | None = None) -> subprocess.CompletedProcess
 
 
 class CLITests(unittest.TestCase):
+    def test_version(self):
+        result = run_cli("--version")
+        self.assertEqual(result.returncode, 0)
+        self.assertEqual(result.stdout, f"opf {__version__}\n")
+
     def test_default_redact_command(self):
         result = run_cli("手机号13800138000")
         self.assertEqual(result.returncode, 0)

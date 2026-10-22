@@ -1,8 +1,11 @@
+from contextlib import redirect_stdout
+from io import StringIO
 from pathlib import Path
 import os
 import tempfile
 import unittest
 
+from veilgate_agent import __version__
 from veilgate_agent._workbuddy import (
     create_review,
     decide_review,
@@ -13,6 +16,14 @@ from veilgate_agent.workbuddy_cli import parser
 
 
 class CommunityBoundaryTests(unittest.TestCase):
+    def test_file_gate_cli_reports_version(self) -> None:
+        output = StringIO()
+        with self.assertRaises(SystemExit) as raised:
+            with redirect_stdout(output):
+                parser().parse_args(["--version"])
+        self.assertEqual(raised.exception.code, 0)
+        self.assertEqual(output.getvalue(), f"anxin-gate {__version__}\n")
+
     def test_settings_have_no_activation_or_payment(self) -> None:
         html = settings_html("local-token")
         self.assertIn("社区版", html)

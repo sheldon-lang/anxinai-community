@@ -12,6 +12,7 @@ import secrets
 import socket
 from urllib.request import urlopen
 
+from . import __version__
 from ._workbuddy import (
     WorkBuddyReviewError,
     create_restore_file_session,
@@ -250,6 +251,11 @@ def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(
         prog="anxin-gate",
         description="AnxinAI Agent 本地文件安全闸门",
+    )
+    root.add_argument(
+        "--version",
+        action="version",
+        version=f"%(prog)s {__version__}",
     )
     commands = root.add_subparsers(dest="command", required=True)
     scan = commands.add_parser("scan", help="本地检查文件并打开审核页")
